@@ -290,7 +290,7 @@
   setInterval(createHeart, 300);
 
   // Relationship counter
-  const startDate = new Date("2025-01-01");
+  const startDate = new Date("2026-01-09T00:00:00");
 
   function updateCounter(){
     const now = new Date();
@@ -301,11 +301,11 @@
     const mins = Math.floor((diff / (1000 * 60)) % 60);
 
     document.getElementById("loveCounter").innerHTML =
-      `${days} days, ${hours} hours, ${mins} minutes together 💞`;
+      `${days} days, ${hours} hours, ${mins} minutes, ${secs} seconds together 💞`;
   }
 
   updateCounter();
-  setInterval(updateCounter, 60000);
+  setInterval(updateCounter, 1000);
 </script>
 
 </body>
