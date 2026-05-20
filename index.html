@@ -122,8 +122,9 @@
       margin:auto;
     }
 
-    /* 💖 Scroll animation FIXED */
+    /* 💙 ENCHANTING GLASS + BLUE AURA GLOW */
     .photo{
+      position:relative;
       background:rgba(255,255,255,0.2);
       padding:10px;
       border-radius:25px;
@@ -132,6 +133,28 @@
       opacity:0;
       transform:translateY(80px) scale(0.95);
       transition:all 0.9s cubic-bezier(0.25, 1, 0.5, 1);
+      z-index:1;
+    }
+
+    /* 💙 glow behind card */
+    .photo::before{
+      content:"";
+      position:absolute;
+      inset:-14px;
+      border-radius:32px;
+      background:radial-gradient(circle,
+        rgba(74,144,255,0.85),
+        rgba(0,200,255,0.35),
+        transparent 70%
+      );
+      filter:blur(20px);
+      z-index:-1;
+      opacity:0;
+      transition:opacity 0.6s ease;
+    }
+
+    .photo.show::before{
+      opacity:1;
     }
 
     .photo.show{
@@ -267,12 +290,12 @@
 </div>
 
 <script>
-  // 💖 Force page always starts at top
+  // 💖 start at top always
   window.addEventListener("load", () => {
     window.scrollTo({ top: 0, left: 0, behavior: "instant" });
   });
 
-  // 💖 Floating hearts
+  // 💖 floating hearts
   function createHeart(){
     const heart = document.createElement('div');
     heart.classList.add('heart');
@@ -288,7 +311,7 @@
   }
   setInterval(createHeart, 300);
 
-  // ⏳ Timer
+  // ⏳ timer
   const startDate = new Date("2026-01-09T00:00:00");
 
   function updateCounter(){
@@ -307,12 +330,12 @@
   updateCounter();
   setInterval(updateCounter, 1000);
 
-  // ✨ Scroll reveal animation FIXED
+  // ✨ scroll reveal
   const photos = document.querySelectorAll(".photo");
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) {
+      if(entry.isIntersecting){
         entry.target.classList.add("show");
       }
     });
