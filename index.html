@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>For My Love 💖</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      font-family:'Poppins',sans-serif;
+      background:linear-gradient(135deg,#ffd6e7,#ffeef5,#f8dfff);
+      color:#4a90ff;
+      overflow-x:hidden;
+    }
+
+    .hearts{
+      position:fixed;
+      width:100%;
+      height:100%;
+      top:0;
+      left:0;
+      pointer-events:none;
+      overflow:hidden;
+      z-index:0;
+    }
+
+    .heart{
+      position:absolute;
+      bottom:-20px;
+      color:rgba(255,255,255,0.6);
+      animation:float 8s linear infinite;
+      font-size:20px;
+    }
+
+    @keyframes float{
+      0%{
+        transform:translateY(0) rotate(0deg);
+        opacity:0;
+      }
+      10%{
+        opacity:1;
+      }
+      100%{
+        transform:translateY(-120vh) rotate(360deg);
+        opacity:0;
+      }
+    }
+
+    .container{
+      position:relative;
+      z-index:2;
+      padding:30px;
+      text-align:center;
+    }
+
+    .hero{
+      min-height:100vh;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+    }
+
+    h1{
+      font-family:'Dancing Script',cursive;
+      font-size:4rem;
+      margin-bottom:15px;
+      text-shadow:0 5px 20px rgba(0,0,0,0.2);
+    }
+
+    .subtitle{
+      max-width:600px;
+      font-size:1.1rem;
+      line-height:1.7;
+      color:#fff;
+      margin-bottom:30px;
+    }
+
+    .btn{
+      background:#fff;
+      color:#ff5c8a;
+      padding:14px 28px;
+      border:none;
+      border-radius:50px;
+      font-size:1rem;
+      cursor:pointer;
+      font-weight:600;
+      transition:0.3s;
+      text-decoration:none;
+      display:inline-block;
+    }
+
+    .btn:hover{
+      transform:scale(1.05);
+    }
+
+    .section{
+      margin-top:80px;
+    }
+
+    .section-title{
+      font-size:2.2rem;
+      margin-bottom:30px;
+      font-family:'Dancing Script',cursive;
+    }
+
+    .gallery{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:20px;
+      max-width:1000px;
+      margin:auto;
+    }
+
+    .photo{
+      background:rgba(255,255,255,0.2);
+      padding:10px;
+      border-radius:25px;
+      backdrop-filter:blur(10px);
+      transition:0.3s;
+    }
+
+    .photo:hover{
+      transform:translateY(-5px);
+    }
+
+    .photo img{
+      width:100%;
+      border-radius:20px;
+      height:300px;
+      object-fit:cover;
+    }
+
+    .note-box{
+      max-width:800px;
+      margin:auto;
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:20px;
+    }
+
+    .note{
+      background:rgba(255,255,255,0.18);
+      padding:25px;
+      border-radius:25px;
+      backdrop-filter:blur(10px);
+      line-height:1.7;
+    }
+
+    iframe{
+      width:90%;
+      max-width:700px;
+      height:400px;
+      border:none;
+      border-radius:25px;
+      margin-top:20px;
+      box-shadow:0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    .counter{
+      font-size:1.5rem;
+      margin-top:20px;
+      font-weight:600;
+    }
+
+    footer{
+      margin-top:100px;
+      padding:40px 20px;
+      font-size:1rem;
+      opacity:0.9;
+    }
+
+    @media(max-width:600px){
+      h1{
+        font-size:3rem;
+      }
+
+      iframe{
+        height:250px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="hearts"></div>
+
+<div class="container">
+
+  <section class="hero">
+    <h1>For My Beautiful Girl 💖</h1>
+
+    <p class="subtitle">
+      Every moment with you feels special.
+      This little website is just a reminder
+      that you mean the world to me 🫶
+    </p>
+
+    <a href="#gallery" class="btn">Open Our Memories ✨</a>
+  </section>
+
+  <section class="section" id="gallery">
+    <h2 class="section-title">Our Pictures 📸</h2>
+
+    <div class="gallery">
+
+      <div class="photo">
+        <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=800" alt="">
+      </div>
+
+      <div class="photo">
+        <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=800" alt="">
+      </div>
+
+      <div class="photo">
+        <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?q=80&w=800" alt="">
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">Little Things I Love About You 💌</h2>
+
+    <div class="note-box">
+
+      <div class="note">
+        Your smile literally fixes my mood every time.
+      </div>
+
+      <div class="note">
+        You make ordinary moments feel unforgettable.
+      </div>
+
+      <div class="note">
+        I could listen to your voice forever honestly 🥹
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">Our Song 🎶</h2>
+
+    <!-- REPLACE VIDEO_ID BELOW -->
+    <iframe
+      src="https://www.youtube.com/embed/VIDEO_ID"
+      allowfullscreen>
+    </iframe>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">Time With You ⏳</h2>
+
+    <div class="counter" id="loveCounter"></div>
+  </section>
+
+  <footer>
+    Made with love 💗
+  </footer>
+
+</div>
+
+<script>
+  // Floating hearts
+  function createHeart(){
+    const heart = document.createElement('div');
+    heart.classList.add('heart');
+    heart.innerHTML = '💖';
+
+    heart.style.left = Math.random() * 100 + 'vw';
+    heart.style.fontSize = (Math.random() * 20 + 15) + 'px';
+    heart.style.animationDuration = (Math.random() * 5 + 5) + 's';
+
+    document.querySelector('.hearts').appendChild(heart);
+
+    setTimeout(() => {
+      heart.remove();
+    }, 10000);
+  }
+
+  setInterval(createHeart, 300);
+
+  // Relationship counter
+  const startDate = new Date("2025-01-01");
+
+  function updateCounter(){
+    const now = new Date();
+    const diff = now - startDate;
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const mins = Math.floor((diff / (1000 * 60)) % 60);
+
+    document.getElementById("loveCounter").innerHTML =
+      `${days} days, ${hours} hours, ${mins} minutes together 💞`;
+  }
+
+  updateCounter();
+  setInterval(updateCounter, 60000);
+</script>
+
+</body>
+</html>
