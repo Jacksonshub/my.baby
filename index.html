@@ -118,34 +118,21 @@
       margin:auto;
     }
 
-    /* 💖 UPDATED PHOTO ANIMATION SYSTEM */
+    /* 💖 FIXED ANIMATION SYSTEM */
     .photo{
       background:rgba(255,255,255,0.2);
       padding:10px;
       border-radius:25px;
       backdrop-filter:blur(10px);
-      transition:0.6s ease;
-      
+
       opacity:0;
-      transform:translateY(80px);
+      transform:translateY(80px) scale(0.95);
+      transition:all 0.9s cubic-bezier(0.25, 1, 0.5, 1);
     }
 
     .photo.show{
       opacity:1;
-      transform:translateY(0);
-    }
-
-    /* different entrance directions */
-    .from-left{
-      transform:translateX(-80px);
-    }
-
-    .from-right{
-      transform:translateX(80px);
-    }
-
-    .from-bottom{
-      transform:translateY(80px);
+      transform:translateY(0) scale(1);
     }
 
     .photo:hover{
@@ -223,21 +210,20 @@
     <a href="#gallery" class="btn">Open Our Memories ✨</a>
   </section>
 
-  <!-- 💖 GALLERY -->
   <section class="section" id="gallery">
     <h2 class="section-title">Our Pictures 📸</h2>
 
     <div class="gallery">
 
-      <div class="photo from-left">
+      <div class="photo">
         <img src="image1.jpg" alt="Memory 1">
       </div>
 
-      <div class="photo from-bottom">
+      <div class="photo">
         <img src="image2.jpg" alt="Memory 2">
       </div>
 
-      <div class="photo from-right">
+      <div class="photo">
         <img src="image3.jpg" alt="Memory 3">
       </div>
 
@@ -312,16 +298,19 @@
   updateCounter();
   setInterval(updateCounter, 1000);
 
-  // ✨ SCROLL REVEAL ANIMATION
+  // ✨ FIXED SCROLL REVEAL
   const photos = document.querySelectorAll(".photo");
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      if(entry.isIntersecting){
+      if (entry.isIntersecting) {
         entry.target.classList.add("show");
       }
     });
-  }, { threshold: 0.2 });
+  }, {
+    threshold: 0.3,
+    rootMargin: "0px 0px -50px 0px"
+  });
 
   photos.forEach(photo => observer.observe(photo));
 </script>
