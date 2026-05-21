@@ -1,337 +1,332 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>For My Love 💖</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>For My Love 💖</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
 
-  <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-    }
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
 
-    html {
-      scroll-behavior: smooth;
-    }
+html {
+  scroll-behavior:smooth;
+}
 
-    body{
-      font-family:'Poppins',sans-serif;
-      background:linear-gradient(135deg,#ffd6e7,#ffeef5,#f8dfff);
-      color:#4a90ff;
-      overflow-x:hidden;
-    }
+body{
+  font-family:'Poppins',sans-serif;
+  background:linear-gradient(135deg,#ffd6e7,#ffeef5,#f8dfff);
+  color:#4a90ff;
+  overflow-x:hidden;
+  opacity:0;
+  animation:fadeIn 1.5s ease forwards;
+}
 
-    .hearts{
-      position:fixed;
-      width:100%;
-      height:100%;
-      top:0;
-      left:0;
-      pointer-events:none;
-      overflow:hidden;
-      z-index:0;
-    }
+@keyframes fadeIn{
+  to{opacity:1;}
+}
 
-    .heart{
-      position:absolute;
-      bottom:-20px;
-      color:rgba(255,255,255,0.6);
-      animation:float 8s linear infinite;
-      font-size:20px;
-    }
+/* ✨ FLOATING BACKGROUND PARTICLES */
+.particles{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:0;
+}
 
-    @keyframes float{
-      0%{transform:translateY(0) rotate(0deg);opacity:0;}
-      10%{opacity:1;}
-      100%{transform:translateY(-120vh) rotate(360deg);opacity:0;}
-    }
+.spark{
+  position:absolute;
+  width:6px;
+  height:6px;
+  background:white;
+  border-radius:50%;
+  opacity:0.6;
+  animation:rise 10s linear infinite;
+}
 
-    .container{
-      position:relative;
-      z-index:2;
-      padding:30px;
-      text-align:center;
-    }
+@keyframes rise{
+  0%{transform:translateY(0) scale(1);opacity:0;}
+  10%{opacity:1;}
+  100%{transform:translateY(-120vh) scale(0.5);opacity:0;}
+}
 
-    .hero{
-      min-height:100vh;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      align-items:center;
-    }
+/* 💖 HEARTS */
+.hearts{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:1;
+}
 
-    h1{
-      font-family:'Dancing Script',cursive;
-      font-size:4rem;
-      margin-bottom:15px;
-      text-shadow:0 5px 20px rgba(0,0,0,0.2);
-    }
+.heart{
+  position:absolute;
+  bottom:-20px;
+  animation:float 8s linear infinite;
+  font-size:18px;
+  opacity:0.7;
+}
 
-    .subtitle{
-      max-width:600px;
-      font-size:1.1rem;
-      line-height:1.7;
-      color:#fff;
-      margin-bottom:30px;
-    }
+@keyframes float{
+  0%{transform:translateY(0) rotate(0deg);opacity:0;}
+  10%{opacity:1;}
+  100%{transform:translateY(-120vh) rotate(360deg);opacity:0;}
+}
 
-    .btn{
-      background:#fff;
-      color:#ff5c8a;
-      padding:14px 28px;
-      border:none;
-      border-radius:50px;
-      font-size:1rem;
-      cursor:pointer;
-      font-weight:600;
-      transition:0.3s;
-      text-decoration:none;
-      display:inline-block;
-    }
+.container{
+  position:relative;
+  z-index:2;
+  padding:30px;
+  text-align:center;
+}
 
-    .btn:hover{
-      transform:scale(1.05);
-    }
+.hero{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+}
 
-    .section{
-      margin-top:80px;
-    }
+h1{
+  font-family:'Dancing Script',cursive;
+  font-size:4rem;
+  text-shadow:0 5px 25px rgba(0,0,0,0.25);
+}
 
-    .section-title{
-      font-size:2.2rem;
-      margin-bottom:30px;
-      font-family:'Dancing Script',cursive;
-    }
+.subtitle{
+  max-width:600px;
+  color:white;
+  margin-top:15px;
+  line-height:1.7;
+}
 
-    .gallery{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-      gap:20px;
-      max-width:1000px;
-      margin:auto;
-      overflow:visible;
-    }
+.btn{
+  margin-top:20px;
+  padding:14px 28px;
+  background:white;
+  border:none;
+  border-radius:50px;
+  color:#ff5c8a;
+  font-weight:600;
+  cursor:pointer;
+  transition:0.3s;
+}
 
-    /* 💖 PHOTO CARD */
-    .photo{
-      position:relative;
-      background:rgba(255,255,255,0.2);
-      padding:10px;
-      border-radius:25px;
-      backdrop-filter:blur(10px);
+.btn:hover{
+  transform:scale(1.08);
+}
 
-      opacity:0;
-      transform:translateY(80px) scale(0.95);
-      transition:all 0.9s cubic-bezier(0.25, 1, 0.5, 1);
-      z-index:1;
-      overflow:visible;
-    }
+/* 🌸 SECTIONS */
+.section{
+  margin-top:90px;
+}
 
-    /* 💙 STRONG BLUE GLOW BEHIND */
-    .photo::before{
-      content:"";
-      position:absolute;
-      inset:-25px;
-      border-radius:40px;
-      background:radial-gradient(circle,
-        rgba(0,140,255,1),
-        rgba(0,200,255,0.5),
-        transparent 70%
-      );
+.section-title{
+  font-family:'Dancing Script',cursive;
+  font-size:2.4rem;
+  margin-bottom:25px;
+}
 
-      filter:blur(30px);
-      opacity:0;
-      z-index:-1;
-      transition:opacity 0.5s ease;
-      transform:scale(1.1);
-    }
+/* 💙 GALLERY */
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+  max-width:1000px;
+  margin:auto;
+}
 
-    .photo.show::before{
-      opacity:1;
-    }
+/* 💎 CARD WITH BREATHING GLOW */
+.photo{
+  position:relative;
+  padding:10px;
+  border-radius:25px;
+  background:rgba(255,255,255,0.2);
+  backdrop-filter:blur(10px);
 
-    .photo.show{
-      opacity:1;
-      transform:translateY(0) scale(1);
-    }
+  opacity:0;
+  transform:translateY(60px) scale(0.95);
+  transition:all 1s cubic-bezier(0.25, 1, 0.5, 1);
+}
 
-    .photo:hover{
-      transform:translateY(-5px) scale(1.02);
-    }
+/* 💙 magical breathing glow */
+.photo::before{
+  content:"";
+  position:absolute;
+  inset:-25px;
+  border-radius:40px;
+  background:radial-gradient(circle,
+    rgba(0,150,255,0.9),
+    rgba(0,200,255,0.4),
+    transparent 70%
+  );
+  filter:blur(28px);
+  opacity:0;
+  z-index:-1;
+  animation:glowPulse 3.5s ease-in-out infinite;
+}
 
-    .photo img{
-      width:100%;
-      border-radius:20px;
-      height:300px;
-      object-fit:cover;
-      display:block;
-    }
+@keyframes glowPulse{
+  0%,100%{transform:scale(1);opacity:0.6;}
+  50%{transform:scale(1.08);opacity:1;}
+}
 
-    .note-box{
-      max-width:800px;
-      margin:auto;
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-      gap:20px;
-    }
+.photo.show{
+  opacity:1;
+  transform:translateY(0) scale(1);
+}
 
-    .note{
-      background:rgba(255,255,255,0.18);
-      padding:25px;
-      border-radius:25px;
-      backdrop-filter:blur(10px);
-      line-height:1.7;
-    }
+.photo:hover{
+  transform:translateY(-8px) scale(1.03);
+}
 
-    iframe{
-      width:90%;
-      max-width:700px;
-      height:400px;
-      border:none;
-      border-radius:25px;
-      margin-top:20px;
-      box-shadow:0 10px 30px rgba(0,0,0,0.2);
-    }
+.photo img{
+  width:100%;
+  height:300px;
+  object-fit:cover;
+  border-radius:20px;
+  display:block;
+}
 
-    .counter{
-      font-size:1.5rem;
-      margin-top:20px;
-      font-weight:600;
-    }
+/* 💌 NOTES */
+.note-box{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+  max-width:800px;
+  margin:auto;
+}
 
-    footer{
-      margin-top:100px;
-      padding:40px 20px;
-      font-size:1rem;
-      opacity:0.9;
-    }
+.note{
+  background:rgba(255,255,255,0.18);
+  padding:25px;
+  border-radius:25px;
+  backdrop-filter:blur(10px);
+}
 
-    @media(max-width:600px){
-      h1{font-size:3rem;}
-      iframe{height:250px;}
-    }
-  </style>
+/* 🎥 VIDEO */
+iframe{
+  width:90%;
+  max-width:700px;
+  height:400px;
+  border:none;
+  border-radius:25px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.2);
+}
+
+/* ⏳ TIMER */
+.counter{
+  font-size:1.5rem;
+  margin-top:20px;
+}
+
+/* 📱 MOBILE */
+@media(max-width:600px){
+  h1{font-size:3rem;}
+  iframe{height:250px;}
+}
+</style>
 </head>
 
 <body>
 
+<div class="particles"></div>
 <div class="hearts"></div>
 
 <div class="container">
 
-  <section class="hero">
-    <h1>To My Babyy🥹💋💖</h1>
+<section class="hero">
+  <h1>To My Babyy💖</h1>
+  <p class="subtitle">Every moment with you feels like a dream I never want to wake up from 🫶</p>
+  <a href="#gallery" class="btn">Open Memories ✨</a>
+</section>
 
-    <p class="subtitle">
-      Every moment with you feels special.
-      This little website is just a reminder
-      that you mean the world to me 🫶
-    </p>
+<section class="section" id="gallery">
+  <h2 class="section-title">Our Memories 📸</h2>
 
-    <a href="#gallery" class="btn">Open Our Memories ✨</a>
-  </section>
+  <div class="gallery">
+    <div class="photo"><img src="image1.jpg"></div>
+    <div class="photo"><img src="image2.jpg"></div>
+    <div class="photo"><img src="image3.jpg"></div>
+  </div>
+</section>
 
-  <section class="section" id="gallery">
-    <h2 class="section-title">Our Pictures 📸</h2>
+<section class="section">
+  <h2 class="section-title">Love Notes 💌</h2>
 
-    <div class="gallery">
+  <div class="note-box">
+    <div class="note">Your smile fixes everything.</div>
+    <div class="note">I miss you even when you're near.</div>
+    <div class="note">You're my safest place 🫶</div>
+  </div>
+</section>
 
-      <div class="photo">
-        <img src="image1.jpg">
-      </div>
+<section class="section">
+  <h2 class="section-title">Video 🎥</h2>
 
-      <div class="photo">
-        <img src="image2.jpg">
-      </div>
+  <iframe src="https://www.youtube.com/embed/AoCNZarU0hQ" allowfullscreen></iframe>
+</section>
 
-      <div class="photo">
-        <img src="image3.jpg">
-      </div>
-
-    </div>
-  </section>
-
-  <section class="section">
-    <h2 class="section-title">Little Things I Love About You 💌</h2>
-
-    <div class="note-box">
-      <div class="note">Your smile literally fixes my mood every time.</div>
-      <div class="note">Your Yansh🥹.</div>
-      <div class="note">I could listen to your voice forever honestly 🥹</div>
-    </div>
-  </section>
-
-  <section class="section">
-    <h2 class="section-title">Video Together🥹❤️🎥</h2>
-
-    <iframe src="https://www.youtube.com/embed/AoCNZarU0hQ" allowfullscreen></iframe>
-  </section>
-
-  <section class="section">
-    <h2 class="section-title">Time With You ⏳</h2>
-    <div class="counter" id="loveCounter"></div>
-  </section>
-
-  <footer>
-    Made with love 💗
-  </footer>
+<section class="section">
+  <h2 class="section-title">Time With You ⏳</h2>
+  <div class="counter" id="counter"></div>
+</section>
 
 </div>
 
 <script>
-  window.addEventListener("load", () => {
-    window.scrollTo({ top: 0, behavior: "instant" });
+
+/* 💖 HEARTS */
+function createHeart(){
+  const h=document.createElement("div");
+  h.className="heart";
+  h.innerHTML="💖";
+  h.style.left=Math.random()*100+"vw";
+  h.style.fontSize=(15+Math.random()*20)+"px";
+  h.style.animationDuration=(5+Math.random()*5)+"s";
+  document.querySelector(".hearts").appendChild(h);
+  setTimeout(()=>h.remove(),10000);
+}
+setInterval(createHeart,250);
+
+/* ✨ SPARK PARTICLES */
+function createSpark(){
+  const s=document.createElement("div");
+  s.className="spark";
+  s.style.left=Math.random()*100+"vw";
+  s.style.top="100vh";
+  s.style.animationDuration=(6+Math.random()*5)+"s";
+  document.querySelector(".particles").appendChild(s);
+  setTimeout(()=>s.remove(),11000);
+}
+setInterval(createSpark,400);
+
+/* ⏳ TIMER */
+const start=new Date("2026-01-09T00:00:00");
+function update(){
+  const d=new Date()-start;
+  document.getElementById("counter").innerHTML=
+  Math.floor(d/86400000)+" days 💖";
+}
+setInterval(update,1000);
+update();
+
+/* ✨ SCROLL ANIMATION */
+const obs=new IntersectionObserver(e=>{
+  e.forEach(x=>{
+    if(x.isIntersecting){
+      x.target.classList.add("show");
+    }
   });
+},{threshold:0.2});
 
-  function createHeart(){
-    const heart = document.createElement('div');
-    heart.classList.add('heart');
-    heart.innerHTML = '💖';
+document.querySelectorAll(".photo").forEach(p=>obs.observe(p));
 
-    heart.style.left = Math.random() * 100 + 'vw';
-    heart.style.fontSize = (Math.random() * 20 + 15) + 'px';
-    heart.style.animationDuration = (Math.random() * 5 + 5) + 's';
-
-    document.querySelector('.hearts').appendChild(heart);
-    setTimeout(() => heart.remove(), 10000);
-  }
-
-  setInterval(createHeart, 300);
-
-  const startDate = new Date("2026-01-09T00:00:00");
-
-  function updateCounter(){
-    const now = new Date();
-    const diff = now - startDate;
-
-    const days = Math.floor(diff / 86400000);
-    const hours = Math.floor(diff / 3600000) % 24;
-    const mins = Math.floor(diff / 60000) % 60;
-    const secs = Math.floor(diff / 1000) % 60;
-
-    document.getElementById("loveCounter").innerHTML =
-      `${days} days, ${hours} hours, ${mins} minutes, ${secs} seconds 💞`;
-  }
-
-  updateCounter();
-  setInterval(updateCounter, 1000);
-
-  const photos = document.querySelectorAll(".photo");
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if(entry.isIntersecting){
-        entry.target.classList.add("show");
-      }
-    });
-  }, { threshold: 0.3 });
-
-  photos.forEach(p => observer.observe(p));
 </script>
 
 </body>
